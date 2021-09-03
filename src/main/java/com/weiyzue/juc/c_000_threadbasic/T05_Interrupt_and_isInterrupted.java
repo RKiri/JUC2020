@@ -9,10 +9,12 @@ import com.weiyzue.util.SleepHelper;
 public class T05_Interrupt_and_isInterrupted {
     public static void main(String[] args) {
         Thread t = new Thread(() -> {
-            for (; ; ) {
+            for (; ; ) {//死循环
                 if (Thread.currentThread().isInterrupted()) {
                     System.out.println("Thread is interrupted!");
                     System.out.println(Thread.currentThread().isInterrupted());
+                    //比较优雅线程结束方案：
+                    //隔一段时间 每一次循环 检查是否有人设置标志位，如果有，结束
                     break;
                 }
             }

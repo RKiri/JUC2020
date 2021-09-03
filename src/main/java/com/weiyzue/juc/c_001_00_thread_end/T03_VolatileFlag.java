@@ -14,7 +14,7 @@ public class T03_VolatileFlag {
                 i++;
             }
 
-            System.out.println("end and i = " + i); //4168806262 4163032200
+            System.out.println("end and i = " + i); //2669101726 2620474026
         });
 
         t.start();

@@ -25,5 +25,6 @@ public class T06_Interrupt_and_interrupted {
         //思考一下，如果在这里写
         System.out.println("main: " + t.interrupted());
         //输出的是哪个线程的中断状态
+        //主线程
     }
 }
