@@ -30,7 +30,7 @@ public class T04_ThreadState {
         });
         System.out.println("1: " + t1.getState());
         t1.start();
-        t1.join();
+        t1.join();//等待t1线程结束
         System.out.println("3: " + t1.getState());
 
         //===================================================
@@ -46,7 +46,7 @@ public class T04_ThreadState {
         });
 
         t2.start();
-        TimeUnit.SECONDS.sleep(1);
+        TimeUnit.SECONDS.sleep(1);//睡1s保证t2执行起来
         System.out.println("4: " + t2.getState());
 
         LockSupport.unpark(t2);
@@ -54,27 +54,27 @@ public class T04_ThreadState {
         System.out.println("5: " + t2.getState());
 
         //===================================================
-        final Object o = new Object();
+        final Object o = new Object();//当成一把锁
         Thread t3 = new Thread(() -> {
-            synchronized (o) {
+            synchronized (o) {//申请锁
                 System.out.println("t3 得到了锁 o");
             }
         });
 
         new Thread(() -> {
-            synchronized (o) {
+            synchronized (o) {//先启动一个线程把锁锁死
                 SleepHelper.sleepSeconds(5);
             }
         }).start();
 
-        SleepHelper.sleepSeconds(1);
+        SleepHelper.sleepSeconds(1);//保证锁定锁后调t3
 
         t3.start();
         SleepHelper.sleepSeconds(1);
         System.out.println("6: " + t3.getState());
 
         //===================================================
-        final Lock lock = new ReentrantLock();
+        final Lock lock = new ReentrantLock();//ReentrantLock JUC的锁 CAS实现 忙等待
         Thread t4 = new Thread(() -> {
             lock.lock(); //省略try finally
             System.out.println("t4 得到了锁 o");
@@ -82,7 +82,7 @@ public class T04_ThreadState {
         });
 
         new Thread(() -> {
-            lock.lock();
+            lock.lock();//Lock lock 也是申请锁
             SleepHelper.sleepSeconds(5);
             lock.unlock();
         }).start();
