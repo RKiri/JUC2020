@@ -8,8 +8,8 @@ import java.util.concurrent.CountDownLatch;
 public class T05_Contended {
     public static long COUNT = 10_0000_0000L;
 
-    //@Contended  //只有1.8起作用 , 保证x位于单独一行中
     private static class T {
+        //@Contended  //只有1.8起作用 , 保证x位于单独一行中
         public long x = 0L;
     }
 

@@ -18,7 +18,8 @@ public class T02_VolatileReference {
         }
     }
 
-    private volatile static A a = new A();
+    //内存里有A对象 a指向他
+    private volatile static A a = new A();//只针对a 如果指向另外new出来的的对象 是可见的
 
     public static void main(String[] args) {
         new Thread(a::m, "t1").start();

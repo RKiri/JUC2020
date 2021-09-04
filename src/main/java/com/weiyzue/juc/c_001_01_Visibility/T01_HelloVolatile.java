@@ -31,13 +31,13 @@ public class T01_HelloVolatile {
 
     public static void main(String[] args) throws IOException {
 
-        new Thread(T01_HelloVolatile::m, "t1").start();
+        new Thread(T01_HelloVolatile::m, "t1").start();//执行m方法
 
         SleepHelper.sleepSeconds(1);
 
         running = false;
 
-        System.in.read();
+        //System.in.read();
     }
 }
 
