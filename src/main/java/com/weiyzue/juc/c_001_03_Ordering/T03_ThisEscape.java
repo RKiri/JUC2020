@@ -12,6 +12,6 @@ public class T03_ThisEscape {
 
     public static void main(String[] args) throws Exception {
         new T03_ThisEscape();
-        System.in.read();
+        System.in.read();//确认主程序结束之前 加一个阻塞 确保线程执行完
     }
 }

@@ -9,14 +9,17 @@ public class JustTest { //JOL = Java Object Layout
     }
 
     public static void main(String[] args) {
-        T t = new T();
+
+        Object o =new Object();
+
+       /* T t = new T();
         System.out.println(ClassLayout.parseInstance(t).toPrintable());
 
         synchronized (t) {
             System.out.println(ClassLayout.parseInstance(t).toPrintable());
         }
 
-        System.out.println(ClassLayout.parseInstance(t).toPrintable());
+        System.out.println(ClassLayout.parseInstance(t).toPrintable());*/
 
     }
 }
