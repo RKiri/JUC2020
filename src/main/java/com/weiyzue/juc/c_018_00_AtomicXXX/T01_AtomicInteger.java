@@ -14,11 +14,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class T01_AtomicInteger {
 	/*volatile*/ //int count1 = 0;
 
-	AtomicInteger count = new AtomicInteger(0);
+	AtomicInteger count = new AtomicInteger(0);//初始值为0 原子的Int类型
 
 	/* synchronized */void m() {
 		for (int i = 0; i < 10000; i++)
 			//if count1.get() < 1000
+			//增加操作自带原子性 增加拿新值 并没有拿新值 只看增加
+			//调用Unsafe类的getAndAddInt() do while不停循环
+		    //compareAndSetInt() native hotspot C C++实现 Java代码到此为止
 			count.incrementAndGet(); //count1++
 	}
 

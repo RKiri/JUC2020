@@ -17,6 +17,7 @@ public class T00_00_IPlusPlus {
                 for (int j = 0; j < 10000; j++) {
                     synchronized (T00_00_IPlusPlus.class) {
                         //lock.lock();
+                        //并发执行 互相打断 访问的是同一个数据
                         n++;
                         //lock.unlock();
                     }
